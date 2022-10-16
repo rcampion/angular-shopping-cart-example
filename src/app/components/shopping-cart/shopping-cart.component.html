@@ -1,0 +1,17 @@
+<div>
+
+  <table>
+
+    <tr *ngFor="let item of (shoppingCartItems | async)">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td><input type="number" min="1" max="5" style="width: 2em" value="{{item.qty}}" [(ngModel)]="item.qty"></td>
+        <td><img src="{{item.image}}"> </td>
+        <td><button (click)="removeItem(item)">Remove</button> </td>
+    </tr>
+
+  </table>
+
+</div>
+<p>Total: ${{(getTotal() | async) | number:'1.2-2'}}</p>

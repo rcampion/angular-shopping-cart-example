@@ -1,0 +1,39 @@
+<div style="text-align:center">
+
+  <img width="100" alt="Angular Logo"
+    src="assets/img/angular_logo.jpg">
+
+  <h1>
+    Welcome to the {{ title }}!
+  </h1>
+
+</div>
+
+<nav>
+  <ul id="tab_menu" class="tab-menu">
+    <li>
+      <a [routerLink]="['/']">
+        <span>Home</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/products']">
+        <span>Products</span>
+      </a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/cart']">
+        <span>Cart</span>
+      </a>
+    </li>
+
+    <div class="shopping-cart" routerLink="/cart">
+      <i class="material-icons">shopping_cart</i>
+      {{(getTotalItems() | async)}}
+    </div>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
